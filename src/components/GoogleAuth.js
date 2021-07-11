@@ -7,7 +7,7 @@ class GoogleAuth extends Component {
     state = {isSignedIn: null}
 
     componentDidMount() {
-        window.gapi.load('client:auth2', async () => {
+        window.gapi.load('client:auth2', async () Z=> {
             await window.gapi.client.init({
                 clientId: OAUTH_KEY,
                 scope: 'email'
