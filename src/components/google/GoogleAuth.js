@@ -15,12 +15,12 @@ class GoogleAuth extends Component {
       });
 
       this.auth = window.gapi.auth2.getAuthInstance();
-      this.onAuthChange(this.auth.isSignedIn.get());
-      this.auth.isSignedIn.listen(this.onAuthChange);
+      this.setAuthorization(this.auth.isSignedIn.get());
+      this.auth.isSignedIn.listen(this.setAuthorization);
     });
   }
 
-  onAuthChange = (isSignedIn) => {
+  setAuthorization = (isSignedIn) => {
     if (isSignedIn) {
       const currentUser = this.auth.currentUser.get().getBasicProfile();
       const user = {
